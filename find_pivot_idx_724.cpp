@@ -4,24 +4,26 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int pivotIndex(vector<int>& nums) {
-        int left{}, right{};   
-        
-        for(int num:nums)
+    int pivotIndex(vector<int> &nums)
+    {
+        int left{}, right{};
+
+        for (int num : nums)
         {
-            right+=num;
+            right += num;
         }
-        
-        for(int i=0;i<nums.size();i++)
+
+        for (int i = 0; i < nums.size(); i++)
         {
-            right-=nums[i];
-            if(left==right)
+            right -= nums[i];
+            if (left == right)
                 return i;
-            left+=nums[i];
+            left += nums[i];
         }
-        
+
         return -1;
     }
 };
