@@ -4,30 +4,32 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    string reverseVowels(string s) {
-        string vowels="aeiouAEIOU";
-        string str_stack="";
-        for(char ch:s)
+    string reverseVowels(string s)
+    {
+        string vowels = "aeiouAEIOU";
+        string str_stack = "";
+        for (char ch : s)
         {
-            for(char vow:vowels)
+            for (char vow : vowels)
             {
-                if(ch==vow)
+                if (ch == vow)
                 {
                     str_stack.push_back(ch);
                     break;
-                }       
+                }
             }
         }
 
-        for(char& ch:s)
+        for (char &ch : s)
         {
-            for(char vow:vowels)
+            for (char vow : vowels)
             {
-                if(ch==vow)
+                if (ch == vow)
                 {
-                    ch=str_stack.back();
+                    ch = str_stack.back();
                     str_stack.pop_back();
                     break;
                 }
