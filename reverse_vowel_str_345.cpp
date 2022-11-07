@@ -10,32 +10,26 @@ public:
     string reverseVowels(string s)
     {
         string vowels = "aeiouAEIOU";
+        unordered_set<char> vowel_set(vowels.begin(), vowels.end());
         string str_stack = "";
         for (char ch : s)
         {
-            for (char vow : vowels)
+            if (vowel_set.count(ch))
             {
-                if (ch == vow)
-                {
-                    str_stack.push_back(ch);
-                    break;
-                }
+                str_stack.push_back(ch);
             }
         }
 
         for (char &ch : s)
         {
-            for (char vow : vowels)
+            if (vowel_set.count(ch))
             {
-                if (ch == vow)
-                {
-                    ch = str_stack.back();
-                    str_stack.pop_back();
-                    break;
-                }
+                ch = str_stack.back();
+                str_stack.pop_back();
             }
         }
 
         return s;
     }
 };
+
