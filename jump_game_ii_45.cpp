@@ -30,3 +30,26 @@ public:
         return dfs(dp, nums, 0);
     }
 };
+
+class Solution2
+{
+public:
+    int jump(vector<int> &nums)
+    {
+        int n = nums.size(), max_pos = 0, cur_pos = 0, last_pos = 0, res = 0;
+
+        while (last_pos < n - 1)
+        {
+            max_pos = max(max_pos, cur_pos + nums[cur_pos]);
+
+            if (cur_pos == last_pos)
+            {
+                last_pos = max_pos;
+                res++;
+            }
+            cur_pos++;
+        }
+
+        return res;
+    }
+};
