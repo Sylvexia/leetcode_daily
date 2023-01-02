@@ -22,13 +22,27 @@ public:
     }
 };
 
-class Solution2
+class Solution
 {
 public:
-    array<int, 2501> dp{};
     int lengthOfLIS(vector<int> &nums)
     {
-        for (auto &ele : dp)
-            ele = 0;
+        int res = 1;
+        int dp[nums.size()];
+        for (int i = 0; i < sizeof(dp) / sizeof(dp[0]); i++)
+            dp[i] = 1;
+
+        for (int i = 1; i < nums.size(); i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                if (nums[i] > nums[j])
+                {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                    res = max(res, dp[i]);
+                }
+            }
+        }
+        return res;
     }
 };
