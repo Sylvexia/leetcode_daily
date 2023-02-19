@@ -37,3 +37,51 @@ public:
         return root;
     }
 };
+
+class Solution
+{
+public:
+    TreeNode *invertTree(TreeNode *root)
+    {
+        stack<TreeNode *> container;
+        container.push(root);
+
+        while (!container.empty())
+        {
+            TreeNode *todo = container.top();
+            container.pop();
+
+            if (!todo)
+                continue;
+
+            container.push(todo->left);
+            container.push(todo->right);
+            swap(todo->left, todo->right);
+        }
+        return root;
+    }
+};
+
+class Solution
+{
+public:
+    TreeNode *invertTree(TreeNode *root)
+    {
+        queue<TreeNode *> container;
+        container.push(root);
+
+        while (!container.empty())
+        {
+            TreeNode *todo = container.front();
+            container.pop();
+
+            if (!todo)
+                continue;
+
+            container.push(todo->left);
+            container.push(todo->right);
+            swap(todo->left, todo->right);
+        }
+        return root;
+    }
+};
