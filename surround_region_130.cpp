@@ -39,18 +39,13 @@ public:
         for (int i = 0; i < board.size(); i++)
         {
             for (int j = 0; j < board[0].size(); j++)
-                mark_as('O', 'X', board, i, j);
-        }
+            {
+                if (board[i][j] == 'O')
+                    board[i][j] = 'X';
 
-        for (int i = 0; i < board.size(); i++)
-        {
-            mark_as('N', 'O', board, i, 0);
-            mark_as('N', 'O', board, i, board[0].size() - 1);
-        }
-        for (int j = 0; j < board[0].size(); j++)
-        {
-            mark_as('N', 'O', board, 0, j);
-            mark_as('N', 'O', board, board.size() - 1, j);
+                if (board[i][j] == 'N')
+                    board[i][j] = 'O';
+            }
         }
     }
 };
