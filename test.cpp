@@ -32,4 +32,14 @@ int main()
     printf("struct pointer size:%ld\n", sizeof(pstruct));
     printf("function pointer size:%ld\n", sizeof(pfunc));
     printf("struct size:%ld\n", sizeof(UWU));
+
+    vector<string> vec;
+    vec.resize(2);
+
+    vec.push_back("69");
+    for (auto &ele : vec)
+    {
+        cout << ele << ","
+             << "\n";
+    }
 }
