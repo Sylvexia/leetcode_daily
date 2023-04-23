@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution
 {
-    vector<int> dp;
+    int dp[100001];
     int dfs(int start, string &s, int k)
     {
         if (start == s.size())
@@ -37,7 +37,7 @@ class Solution
 public:
     int numberOfArrays(string s, int k)
     {
-        dp.resize(s.size() + 1, -1);
+        memset(dp, -1, sizeof(dp));
         return dfs(0, s, k);
     }
 };
