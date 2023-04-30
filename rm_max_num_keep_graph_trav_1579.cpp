@@ -62,7 +62,7 @@ public:
             {
             case 3:
             {
-                added += (bob.unite(u, v) | alice.unite(u, v));
+                added += (bob.unite(u, v) or alice.unite(u, v)); // if replace | with or, this would error because alice would not be executed
                 break;
             }
             case 2:
