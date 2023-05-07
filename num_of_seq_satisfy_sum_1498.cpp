@@ -37,8 +37,8 @@ public:
 int main()
 {
     Solution sol;
-    vector<int> nums{2, 3, 3, 4, 6, 7};
-    int target = 12;
+    vector<int> nums{3, 5, 6, 7};
+    int target = 9;
 
     cout << sol.numSubseq(nums, target);
 }
