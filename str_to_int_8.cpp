@@ -40,4 +40,5 @@ int main()
 {
     Solution sol;
     cout<<sol.myAtoi("+-12");
+    cout<<atoi("+-12");
 }
