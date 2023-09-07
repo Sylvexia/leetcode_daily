@@ -4,4 +4,4 @@ set(CMAKE_BUILD_TYPE Debug)
 # set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -g -Wall -O2")
 
-add_executable(test merge_sorted_arr_88.cpp)
+add_executable(test decode_str_394.cpp)
