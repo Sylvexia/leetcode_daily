@@ -14,7 +14,7 @@ public:
         string res;
 
         int num = 0;
-        
+
         for (char c : s) {
             if (isdigit(c))
                 num = num * 10 + (c - '0');
