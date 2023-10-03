@@ -19,6 +19,6 @@ public:
                 bob++;
         }
 
-        return alice>bob;
+        return alice > bob;
     }
 };
