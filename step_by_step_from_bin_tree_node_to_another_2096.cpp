@@ -1,7 +1,6 @@
 // 2096. Step-By-Step Directions From a Binary Tree Node to Another
 
 #include <bits/stdc++.h>
-#include <iterator>
 #include <string>
 
 using namespace std;
