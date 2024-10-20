@@ -4,6 +4,12 @@
 
 using namespace std;
 
+static int speedup = []() {
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    return 0;
+}();
+
+
 class Solution
 {
     char solve(int k, int count)
