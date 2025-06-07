@@ -5,11 +5,6 @@
 
 using namespace std;
 
-// 3 8 1 6 5 4 7 2 1 9
-
-// 3 8 6 5 4 7 2  
-// 1 1
-
 class Solution
 {
 public:
