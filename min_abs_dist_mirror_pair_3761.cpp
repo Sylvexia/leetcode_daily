@@ -1,6 +1,6 @@
+// 3761. Minimum Absolute Distance Between Mirror Pairs
+
 #include <bits/stdc++.h>
-#include <climits>
-#include <string>
 
 using namespace std;
 
