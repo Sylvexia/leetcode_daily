@@ -1,6 +1,7 @@
 // 877. Stone Game
 
 #include <bits/stdc++.h>
+#include <numeric>
 
 using namespace std;
 
@@ -11,40 +12,32 @@ static int speedup = []() {
 
 class SolutionOn
 {
-    int dfs(int l,
-            int r,
-            bool isAlice,
-            vector<int> &piles,
-            vector<vector<int>> &dp)
-    {
-        if (l > r)
-            return 0;
-        if (dp[l][r] != -1)
-            return dp[l][r];
+    unordered_map<long long, int> dp;
 
-        int left = isAlice ? piles[l] : -piles[l];
-        int right = isAlice ? piles[r] : -piles[r];
+    int dfs(int l, int r, vector<int>& piles) {
+        if (l > r) return 0;
 
-        isAlice ^= 1;
+        long long key = (l << 16) | r;
+        if (dp.count(key)) return dp[key];
 
-        return dp[l][r] = max(dfs(l + 1, r, isAlice, piles, dp) + left,
-                              dfs(l, r - 1, isAlice, piles, dp) + right);
+        bool even = ((r - l) % 2 == 0);
+
+        int takeLeft = dfs(l + 1, r, piles) + (even ? piles[l] : 0);
+        int takeRight = dfs(l, r - 1, piles) + (even ? piles[r] : 0);
+
+        return dp[key] = max(takeLeft, takeRight);
     }
 
 public:
-    bool stoneGame(vector<int> &piles)
-    {
-        int n = piles.size();
-        vector<vector<int>> dp(n, vector<int>(n, -1));
-        return dfs(0, n - 1, true, piles, dp) > 0;
+    bool stoneGame(vector<int>& piles) {
+        int total = accumulate(piles.begin(), piles.end(), 0);
+        int alice = dfs(0, piles.size() - 1, piles);
+        return alice > total - alice;
     }
 };
 
 class Solution
 {
 public:
-    bool stoneGame(vector<int> &piles)
-    {
-        return true;
-    }
+    bool stoneGame(vector<int> &piles) { return true; }
 };
