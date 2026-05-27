@@ -1,7 +1,6 @@
 // 3121. Count the Number of Special Characters II
 
 #include <bits/stdc++.h>
-#include <unordered_set>
 
 using namespace std;
 
