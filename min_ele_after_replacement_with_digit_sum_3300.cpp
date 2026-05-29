@@ -1,4 +1,4 @@
-// 1007. Minimum Domino Rotations For Equal Row
+// 3300. Minimum Element After Replacement With Digit Sum
 
 #include <bits/stdc++.h>
 
