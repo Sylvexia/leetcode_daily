@@ -1,7 +1,6 @@
 // 1331. Rank Transform of an Array
 
-#include <bits/stdc++.h>
-#include <queue>
+#include <iostream>
 
 using namespace std;
 
@@ -15,24 +14,18 @@ class Solution
 public:
     vector<int> arrayRankTransform(vector<int> &arr)
     {
-        auto comp = [](pair<int, int> &a, pair<int, int> &b) { return a > b; };
-
-        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)>
-            pq(comp);
-
-        for (int i = 0; i < arr.size(); i++)
-            pq.push({arr[i], i});
-
-        vector<int> res(arr.size());
+        int n = arr.size();
+        vector<pair<int, int>> vec;
+        for (int i = 0; i < n; i++)
+            vec.push_back({arr[i], i});
+        ranges::sort(vec);
+        vector<int> res(n);
         int rank = 0;
-        int last_ele = -1;
-        while (!pq.empty()) {
-            auto [num, idx] = pq.top();
-            pq.pop();
-
-            rank = (last_ele == num) ? rank : rank + 1;
+        int prev = INT_MAX;
+        for (auto [val, idx] : vec) {
+            rank += prev != val;
             res[idx] = rank;
-            last_ele = num;
+            prev = val;
         }
         return res;
     }
