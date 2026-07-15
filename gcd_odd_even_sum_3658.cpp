@@ -1,7 +1,6 @@
 // 3658. GCD of Odd and Even Sums
 
 #include <iostream>
-#include <numeric>
 
 using namespace std;
 
